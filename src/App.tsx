@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, Fragment, useEffect } from 'react'
+import { useSearchBooksQuery } from './features/api/openLibraryApi'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchTerm, setSearchTerm] = useState('')
+  const { data, error, isLoading } = useSearchBooksQuery(searchTerm)
+
+  useEffect(() => {
+    setSearchTerm('the+lord+of+the+rings')
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      {error ? (
+        <>Oh no, there was an error</>
+      ) : isLoading ? (
+        <>Loading...</>
+      ) : data ? (
+        <div>
+          {data.docs.map((doc) => (
+            <Fragment key={doc.key}>
+              <h3>{doc.title}</h3>
+              <img src={doc.imageUrl} alt={doc.title} />
+              {doc.author_name} - {doc.first_publish_year}
+            </Fragment>
+          ))}
+        </div>
+      ) : null}
+    </div>
   )
 }
 
