@@ -1,0 +1,46 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const StyledSearchInput = styled.input`
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  min-width: 250px;
+  background-color: #ffffff;
+  color: #212529;
+
+  &::placeholder {
+    color: #6c757d;
+  }
+
+  /* Basic focus style - can be enhanced */
+  &:focus {
+    outline: 2px solid transparent;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+`
+
+interface SearchInputProps {
+  value: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  placeholder?: string
+}
+
+export const SearchInput: React.FC<SearchInputProps> = ({
+  value,
+  onChange,
+  placeholder = 'Search...',
+  ...props
+}) => {
+  return (
+    <StyledSearchInput
+      type="search"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      {...props}
+    />
+  )
+}

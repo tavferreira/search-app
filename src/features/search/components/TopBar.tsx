@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { SearchInput } from './SearchInput'
+import { useState } from 'react'
 
 const StyledTopBar = styled.header`
-  /* Styling for the sticky top bar */
   position: sticky;
   top: 0;
   left: 0;
@@ -17,20 +18,22 @@ const StyledTopBar = styled.header`
   min-height: 60px;
 `
 
-const PlaceholderSearchInput = styled.input`
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  min-width: 200px; // Example width
-`
-
 export const TopBar = () => {
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value)
+    // In real app, call prop like: props.onSearchChange?.(event.target.value);
+    console.log('Search term changed (temp):', event.target.value) // For demo
+  }
+
   return (
     <StyledTopBar>
-      <PlaceholderSearchInput type="search" placeholder="Search..." />
+      <SearchInput
+        value={searchValue}
+        onChange={handleSearchChange}
+        placeholder="Search Open Library..."
+      />
     </StyledTopBar>
   )
 }
-
-export default TopBar
