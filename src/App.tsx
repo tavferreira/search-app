@@ -1,5 +1,6 @@
 import { useState, Fragment, useEffect } from 'react'
-import { useSearchBooksQuery } from './features/api/openLibraryApi'
+import { useSearchBooksQuery } from './features/search/api/openLibraryApi'
+import GlobalStyle from './styles/GlobalStyle'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -10,7 +11,8 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <>
+      <GlobalStyle />
       {error ? (
         <>Oh no, there was an error</>
       ) : isLoading ? (
@@ -26,7 +28,7 @@ function App() {
           ))}
         </div>
       ) : null}
-    </div>
+    </>
   )
 }
 
