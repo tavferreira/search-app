@@ -14,7 +14,6 @@ const StyledSearchInput = styled.input`
     color: #6c757d;
   }
 
-  /* Basic focus style - can be enhanced */
   &:focus {
     outline: 2px solid transparent;
     border-color: #86b7fe;
@@ -26,12 +25,14 @@ interface SearchInputProps {
   value: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
 }
 
 export const SearchInput: React.FC<SearchInputProps> = ({
   value,
   onChange,
   placeholder = 'Search...',
+  onFocus,
   ...props
 }) => {
   return (
@@ -39,6 +40,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
       type="search"
       value={value}
       onChange={onChange}
+      onFocus={onFocus}
       placeholder={placeholder}
       {...props}
     />
