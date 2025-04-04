@@ -76,6 +76,26 @@ interface SearchResultItemProps {
   id?: string
 }
 
+const generateAmazonSearchUrl = (book: BookDocument): string => {
+  const baseUrl = 'https://www.amazon.es/s?i=stripbooks'
+  const rhParams: string[] = []
+
+  rhParams.push(`p_28:${encodeURIComponent(book.title)}`)
+
+  if (book.author_name && book.author_name.length > 0) {
+    rhParams.push(`p_27:${encodeURIComponent(book.author_name[0])}`)
+  }
+
+  if (book.isbn && book.isbn.length > 0) {
+    const isbnSearchTerm = book.isbn.join('|')
+    rhParams.push(`p_66:${encodeURIComponent(isbnSearchTerm)}`)
+  }
+
+  const rhValue = rhParams.join(',')
+
+  return `${baseUrl}&rh=${rhValue}&s=relevancerank`
+}
+
 const SearchResultItemComponent = ({
   book,
   isHighlighted = false,
@@ -85,6 +105,7 @@ const SearchResultItemComponent = ({
     book.author_name && book.author_name.length > 0
       ? `by ${book.author_name.join(', ')}`
       : 'Author unknown'
+  const amazonUrl = generateAmazonSearchUrl(book)
 
   return (
     <ItemWrapper role="option" id={id} $isHighlighted={isHighlighted}>
@@ -98,7 +119,7 @@ const SearchResultItemComponent = ({
       />
       <TextContent>
         <TitleLink
-          href=""
+          href={amazonUrl}
           target="_blank"
           rel="noopener noreferrer"
           title={book.title}
