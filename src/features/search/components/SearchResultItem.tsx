@@ -77,7 +77,7 @@ interface SearchResultItemProps {
 }
 
 const generateAmazonSearchUrl = (book: BookDocument): string => {
-  const baseUrl = 'https://www.amazon.es/s?i=stripbooks'
+  const baseUrl = 'https://www.amazon.com/s?i=stripbooks'
   const rhParams: string[] = []
 
   rhParams.push(`p_28:${encodeURIComponent(book.title)}`)
