@@ -96,11 +96,7 @@ const generateAmazonSearchUrl = (book: BookDocument): string => {
   return `${baseUrl}&rh=${rhValue}&s=relevancerank`
 }
 
-const SearchResultItemComponent = ({
-  book,
-  isHighlighted = false,
-  id,
-}: SearchResultItemProps) => {
+const SearchResultItemComponent = ({ book }: SearchResultItemProps) => {
   const displayAuthors =
     book.author_name && book.author_name.length > 0
       ? `by ${book.author_name.join(', ')}`
@@ -108,7 +104,7 @@ const SearchResultItemComponent = ({
   const amazonUrl = generateAmazonSearchUrl(book)
 
   return (
-    <ItemWrapper role="option" id={id} $isHighlighted={isHighlighted}>
+    <ItemWrapper>
       <Image
         src={book.imageUrl}
         alt={`Cover for ${book.title}`}
