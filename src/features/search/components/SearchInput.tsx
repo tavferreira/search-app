@@ -33,6 +33,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
     return (
       <StyledSearchInput
         ref={ref}
+        name="search"
         type="search"
         value={value}
         onChange={onChange}

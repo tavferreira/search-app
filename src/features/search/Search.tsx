@@ -16,7 +16,7 @@ export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedSearchTerm = useDebounce(searchTerm, 500) // Debounce with 500ms delay
 
-  const { data, error, isFetching } = useSearchBooksQuery(searchTerm, {
+  const { data, error, isFetching } = useSearchBooksQuery(debouncedSearchTerm, {
     skip: !debouncedSearchTerm,
   })
   const [isOpen, setIsOpen] = useState<boolean>(false)
