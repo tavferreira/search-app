@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 
 const StyledSearchInput = styled.input`
@@ -21,28 +21,25 @@ const StyledSearchInput = styled.input`
   }
 `
 
-interface SearchInputProps {
+interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   value: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
 }
 
-export const SearchInput: React.FC<SearchInputProps> = ({
-  value,
-  onChange,
-  placeholder = 'Search...',
-  onFocus,
-  ...props
-}) => {
-  return (
-    <StyledSearchInput
-      type="search"
-      value={value}
-      onChange={onChange}
-      onFocus={onFocus}
-      placeholder={placeholder}
-      {...props}
-    />
-  )
-}
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
+  ({ value, onChange, placeholder = 'Search...', onFocus, ...props }, ref) => {
+    return (
+      <StyledSearchInput
+        ref={ref}
+        type="search"
+        value={value}
+        onChange={onChange}
+        onFocus={onFocus}
+        placeholder={placeholder}
+        {...props}
+      />
+    )
+  }
+)
