@@ -2,13 +2,13 @@ import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 
 const StyledSearchInput = styled.input`
+  min-width: 250px;
   padding: 0.6rem 0.85rem;
+  font-size: 0.95rem;
+  color: #212529;
+  background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 6px;
-  font-size: 0.95rem;
-  min-width: 250px;
-  background-color: #ffffff;
-  color: #212529;
 
   &::placeholder {
     color: #6c757d;
@@ -17,7 +17,7 @@ const StyledSearchInput = styled.input`
   &:focus {
     outline: 2px solid transparent;
     border-color: #86b7fe;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    box-shadow: 0 0 0 0.2rem rgb(13 110 253 / 25%);
   }
 `
 

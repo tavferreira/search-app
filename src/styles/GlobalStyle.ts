@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   /* Josh Comeau's Custom CSS Reset */
+
   /* https://www.joshwcomeau.com/css/custom-css-reset/ */
   
 
@@ -22,10 +23,11 @@ const GlobalStyle = createGlobalStyle`
 
   /* 4. Typographic tweaks */
   body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
                  Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Example font stack */
+
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* 5. Improve media defaults */
@@ -63,8 +65,8 @@ const GlobalStyle = createGlobalStyle`
   /* 11. Remove list styles on ul, ol elements with a list role */
   ul[role='list'],
   ol[role='list'] {
-    list-style: none;
     padding: 0;
+    list-style: none;
   }
 
   /* 12. Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -76,9 +78,9 @@ const GlobalStyle = createGlobalStyle`
     *,
     *::before,
     *::after {
+      transition-duration: 0.01ms !important;
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
   }

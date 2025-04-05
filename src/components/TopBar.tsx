@@ -9,18 +9,16 @@ interface StyledTopBarProps {
 const StyledTopBar = styled.header<StyledTopBarProps>`
   position: sticky;
   top: 0;
-  left: 0;
   right: 0;
-  background-color: #e9ecef;
-  padding: 0.75rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  left: 0;
   z-index: 1000;
-
   display: flex;
   align-items: center;
-  min-height: 60px;
-
   justify-content: ${(props) => props.$justifyContent ?? 'flex-end'};
+  min-height: 60px;
+  padding: 0.75rem 1.5rem;
+  background-color: #e9ecef;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 `
 
 interface TopBarProps {

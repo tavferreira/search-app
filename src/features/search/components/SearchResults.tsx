@@ -10,39 +10,36 @@ import { BookDocument } from '@/features/search/api/openLibraryApi'
 const SearchResultsContainer = styled.ul`
   position: absolute;
   top: calc(100% + 4px);
-  left: -150px;
   right: 0;
-
-  background-color: #ffffff;
+  left: -150px;
+  z-index: 999;
+  max-height: 450px;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  list-style: none;
+  background-color: #fff;
   border: 4px solid #dee2e6;
   border-top: none;
   border-radius: 0 0 6px 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  padding: 0;
-  margin: 0;
-  max-height: 450px;
-  overflow-y: auto;
-  list-style: none;
-  z-index: 999;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 `
 
 const MessageContainer = styled.div`
   position: absolute;
   top: calc(100% + 4px);
-  left: -150px;
   right: 0;
-
+  left: -150px;
+  z-index: 999;
   padding: 1rem 1.5rem;
+  margin-top: -1px;
   color: #6c757d;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #dee2e6;
   border-top: none;
   border-radius: 0 0 6px 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: -1px;
-  z-index: 999;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 `
 
 const SkeletonItem = () => (

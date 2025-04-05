@@ -6,11 +6,11 @@ const ItemWrapper = styled.li<{ $isHighlighted?: boolean }>`
   display: flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  border-bottom: 1px solid #eee;
   cursor: pointer;
-  transition: background-color 0.15s ease-in-out;
   background-color: ${(props) =>
     props.$isHighlighted ? '#f0f4f8' : 'transparent'};
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.15s ease-in-out;
 
   &:last-child {
     border-bottom: none;
@@ -22,52 +22,52 @@ const ItemWrapper = styled.li<{ $isHighlighted?: boolean }>`
 `
 
 const Image = styled.img`
+  flex-shrink: 0;
   width: 40px;
   height: 50px;
-  object-fit: cover;
   margin-right: 1rem;
-  flex-shrink: 0;
+  object-fit: cover;
   background-color: #eee;
   border-radius: 2px;
 `
 
 const TextContent = styled.div`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   gap: 0.1rem;
   overflow: hidden;
-  flex-grow: 1;
 `
 
 const TitleLink = styled.a`
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.95rem;
   font-weight: 600;
   color: #212529;
-  text-decoration: none;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
+  text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
     color: #0d6efd;
+    text-decoration: underline;
   }
 `
 
 const Author = styled.p`
-  font-size: 0.85rem;
-  color: #6c757d;
   margin: 0;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.85rem;
+  color: #6c757d;
+  white-space: nowrap;
 `
 
 const PublishYear = styled.p`
+  margin: 0;
   font-size: 0.75rem;
   color: #868e96;
-  margin: 0;
 `
 
 interface SearchResultItemProps {
