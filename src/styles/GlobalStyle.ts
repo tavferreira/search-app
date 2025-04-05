@@ -58,9 +58,10 @@ const GlobalStyle = createGlobalStyle`
 
   /* 10. Improve focus outline for keyboard navigation */
   *:focus-visible {
-    outline: 2px auto dodgerblue; /* Example focus color */
+    outline: 2px auto dodgerblue; 
     outline-offset: 2px;
   }
+
 
   /* 11. Remove list styles on ul, ol elements with a list role */
   ul[role='list'],
