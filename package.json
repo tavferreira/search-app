@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
+    "lint:css": "stylelint \"**/*.{ts,tsx}\"",
+    "lint:css:fix": "stylelint \"**/*.{ts,tsx}\" --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\" --config ./.prettierrc.json",
     "ts:check": "tsc --noEmit",
     "preview": "vite preview"
@@ -33,7 +35,11 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "postcss-styled-syntax": "^0.7.1",
     "prettier": "^3.5.3",
+    "stylelint": "^16.17.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-standard": "^37.0.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.5"
