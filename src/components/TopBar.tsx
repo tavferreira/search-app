@@ -1,7 +1,12 @@
+import React from 'react'
 import styled from 'styled-components'
-import { Search } from '../features/search/Search'
+import type { CSSProperties } from 'react'
 
-const StyledTopBar = styled.header`
+interface StyledTopBarProps {
+  $justifyContent?: CSSProperties['justifyContent']
+}
+
+const StyledTopBar = styled.header<StyledTopBarProps>`
   position: sticky;
   top: 0;
   left: 0;
@@ -13,14 +18,18 @@ const StyledTopBar = styled.header`
 
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   min-height: 60px;
+
+  justify-content: ${(props) => props.$justifyContent ?? 'flex-end'};
 `
 
-export const TopBar = () => {
+interface TopBarProps {
+  children?: React.ReactNode
+  justifyContent?: CSSProperties['justifyContent']
+}
+
+export const TopBar = ({ children, justifyContent }: TopBarProps) => {
   return (
-    <StyledTopBar>
-      <Search />
-    </StyledTopBar>
+    <StyledTopBar $justifyContent={justifyContent}>{children}</StyledTopBar>
   )
 }

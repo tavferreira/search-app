@@ -4,8 +4,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { SerializedError } from '@reduxjs/toolkit'
 
-import { SearchResultItem } from './SearchResultItem'
-import { BookDocument } from '../api/openLibraryApi'
+import { SearchResultItem } from '@/features/search/components/SearchResultItem'
+import { BookDocument } from '@/features/search/api/openLibraryApi'
 
 const SearchResultsContainer = styled.ul`
   position: absolute;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BookDocument } from '../api/openLibraryApi'
+import { BookDocument } from '@/features/search/api/openLibraryApi'
 
 const ItemWrapper = styled.li<{ $isHighlighted?: boolean }>`
   display: flex;

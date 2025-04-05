@@ -1,10 +1,10 @@
 import React, { useCallback, useRef, useState } from 'react'
-import { SearchInput } from './components/SearchInput' // Path relative to src/features/search/
-import { useSearchBooksQuery } from './api/openLibraryApi'
-import { SearchResults } from './components/SearchResults'
+import { useSearchBooksQuery } from '@/features/search/api/openLibraryApi'
+import { SearchResults } from '@/features/search/components/SearchResults'
 import { styled } from 'styled-components'
-import { useDismiss } from '../../hooks/useDismiss'
-import { useDebounce } from '../../hooks/useDebounce'
+import { useDismiss } from '@/hooks/useDismiss'
+import { useDebounce } from '@/hooks/useDebounce'
+import { SearchInput } from '@/features/search/components/SearchInput'
 
 const SearchWrapper = styled.div`
   position: relative;
